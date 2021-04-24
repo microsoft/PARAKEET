@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "ES6",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "strict": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "preserveConstEnums": true,
+    "typeRoots": [ "./types" ],
+    "outDir": "./release/Parakeet",
+  },
+  "files": [
+    "Parakeet.Polyfill.ts",
+    "lib/AdInterests.ts",
+    "lib/AdProperties.ts",
+    "lib/AdRequestConfig.ts",
+    "lib/AdTargeting.ts",
+    "lib/AnonymizedSignals.ts",
+    "lib/InterestGroups.ts",
+    "lib/ParakeetHelpers.ts"
+  ]
+}
