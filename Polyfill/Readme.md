@@ -4,10 +4,10 @@ In order to enable evaluation of PARAKEET by interested parties as soon as
 possible, we're building a Javascript based implementation built on top of
 existing web technologies. We aim to simulate the final state as closely and
 as reasonably as possible prior to other privacy restrictions being implemented
-in the web platform that will eventually limit cross-site storaage; at that
-later stage this polyfill will no longer be a viable evaluation tool.
+in the web platform that will eventually limit cross-site storage; at that
+later stage, this polyfill will no longer be a viable evaluation tool.
 
-This polyfill will give devellopers early and frequent access to the latest API
+This polyfill will give developers early and frequent access to the latest API
 shape and ergonomics for PARAKEET while also allowing us to iterate quickly and
 address any changes needed prior to making this a part of the web platform
 natively.
@@ -36,7 +36,7 @@ of the system.
 
 As part of the request process, information that is contextual (from the page
 the user is on) and related to the current ad request will be sent together with
-previously joined interest groupst to the PARAKEET service. The following APIs
+previously joined interest groups to the PARAKEET service. The following APIs
 and types have been exposed as part of this polyfill to enable this request
 flow:
 
@@ -69,10 +69,9 @@ flow:
 
 #### Usage
 This library can be compiled and used directly as part of another NPM or
-TypeScript project. We also plan release both minified and non-minified vanilla
+TypeScript project. We also plan to release both minified and non-minified vanilla
 JavaScript bundles that can be directly included as part of other stacks. If
-another format would be useful let us know by opening an issue and we'll see
-what we can do!
+another format would be useful, let us know by opening an issue, and we'll see what we can do!
 
 ###### Include directly on a webpage
 ```html
@@ -193,7 +192,7 @@ The known/used anonymization signals that can be requested as part of a request.
 If not included as part of an [AdRequestConfig](#AdRequestConfig) any
 information under the specified category may be omitted.
 
-e.g. if `targeting` is not included then all targeting related information may
+e.g. if `targeting` is not included, then all targeting related information may
  be excluded.
 
 ```typescript
@@ -213,7 +212,7 @@ export type AnonymizedSignals = "coarse-geolocation" | "coarse-ua" | "targeting"
 
 This method is used to request a new ad with a given
 [AdRequestConfig](#AdRequestConfig). The request will be sent to the PARAKEET
-Service and, if succesfully completed, the promise will resolve with an URL to
+Service and, if successfully completed, the promise will resolve with an URL to
 use as an iframe source. This is intended to mimic as closely as possible how
 future interactions with fenced frames and an opaque source will function.
 
@@ -270,7 +269,7 @@ they will be anonymized by PARAKEET in isolation.
 ```
 
 This should be set to the full URL that hosts the included **[frame.html](frame.html)** or
-equivilent storage silo setup. This must be set prior to calling other PARAKEET
+equivalent storage silo setup. This must be set prior to calling other PARAKEET
 methods.
 
 e.g.
