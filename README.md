@@ -3,7 +3,7 @@ At Microsoft, we are committed to fostering a healthy web ecosystem where everyo
 
 Through this proposal, we believe we can substantially improve end-user privacy while retaining the ability for sites to sustain their businesses through ad funding. We propose a new set of APIs that leverage a browser-trusted service to develop a sufficient understanding of user interests and therefore enable effective ad targeting without allowing ad networks to passively track users across the web. This approach removes the need for cross-site identity tracking, enables new privacy enabling methods to support monetization, and maintains ad auction functionality within existing ad tech ecosystems.
 
-Today, we're pleased to further this discussion among the web community with the contribution of one possible approach. We will continue to collaborate with the community to iterate on this and other proposals with the goal of landing on a set of interoperable standards that work in multiple browsers. Together with the web community, we have an opportunity to share ideas, learn from each other, and create a better future for the web.  
+We're pleased to further this discussion among the web community with the contribution of one possible approach. We will continue to collaborate with the community to iterate on this and other proposals with the goal of landing on a set of interoperable standards that work in multiple browsers. Together with the web community, we have an opportunity to share ideas, learn from each other, and create a better future for the web.  
 
 # Proposals
 
