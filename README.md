@@ -1,14 +1,16 @@
-# Project
+# Introduction
+At Microsoft, we are committed to fostering a healthy web ecosystem where everyone can thrive – consumers, publishers, advertisers, and platforms alike. Protecting user privacy is foundational to that commitment and is built into Microsoft Edge with features like Tracking Prevention, Microsoft Defender SmartScreen, and InPrivate browsing. We also support an ad-funded web because we don't want to see a day where all quality content has moved behind paywalls, accessible to only those with the financial means.   
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+Through this proposal, we believe we can substantially improve end-user privacy while retaining the ability for sites to sustain their businesses through ad funding. We propose a new set of APIs that leverage a browser-trusted service to develop a sufficient understanding of user interests and therefore enable effective ad targeting without allowing ad networks to passively track users across the web. This approach removes the need for cross-site identity tracking, enables new privacy enabling methods to support monetization, and maintains ad auction functionality within existing ad tech ecosystems.
 
-As the maintainer of this project, please make a few updates:
+We're pleased to further this discussion among the web community with the contribution of one possible approach. We will continue to collaborate with the community to iterate on this and other proposals with the goal of landing on a set of interoperable standards that work in multiple browsers. Together with the web community, we have an opportunity to share ideas, learn from each other, and create a better future for the web.  
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+# Proposals
+
+* [PARAKEET](https://github.com/WICG/privacy-preserving-ads/blob/main/Parakeet.md)
+  * [PARAKEET polyfill](/Polyfill)
+* [MaCAW](https://github.com/WICG/privacy-preserving-ads/blob/main/MACAW.md)
+
 
 ## Contributing
 
