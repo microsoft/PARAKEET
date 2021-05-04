@@ -7,8 +7,11 @@ as reasonably as possible prior to other privacy restrictions being implemented
 in the web platform that will eventually limit cross-site storage; at that
 later stage, this polyfill will no longer be a viable evaluation tool.
 
+This polyfill will give developers early and frequent access to test the latest API shape and ergonomics for PARAKEET with test data traffic while also allowing us to iterate quickly and address any changes needed prior to making this a part of the web platform natively. 
 
-This polyfill will give developers early and frequent access to test the latest API shape and ergonomics for PARAKEET with test data traffic while also allowing us to iterate quickly and address any changes needed prior to making this a part of the web platform natively. By using & testing this polyfill, developers hereby agree that they shall not deploy this code on production servers with actual user data.
+By downloading and using this library, developers hereby agree that they shall NOT deploy this code on production servers with real user data.
+
+Any data collected will be for research purposes to understand the usage of proposed API calls around privacy-preserving call flows from publishers using PARAKEET.
 
 #### Status
 _**Draft**_; we're still working on validating an initial version for everyone to
