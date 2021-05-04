@@ -7,10 +7,8 @@ as reasonably as possible prior to other privacy restrictions being implemented
 in the web platform that will eventually limit cross-site storage; at that
 later stage, this polyfill will no longer be a viable evaluation tool.
 
-This polyfill will give developers early and frequent access to the latest API
-shape and ergonomics for PARAKEET while also allowing us to iterate quickly and
-address any changes needed prior to making this a part of the web platform
-natively.
+
+This polyfill will give developers early and frequent access to test the latest API shape and ergonomics for PARAKEET with test data traffic while also allowing us to iterate quickly and address any changes needed prior to making this a part of the web platform natively. By using & testing this polyfill, developers hereby agree that they shall not deploy this code on production servers with actual user data.
 
 #### Status
 _**Draft**_; we're still working on validating an initial version for everyone to
