@@ -1,6 +1,6 @@
 // Copyright (C) Microsoft Corporation. All rights reserved.
 
-const endpoint = "https://edge.microsoft.example/.well-known/ad-bundles";
+const endpoint = "https://edge.microsoft.com/.well-known/ad-bundles";
 
 // General helpers for API configuration and use.
 import {
