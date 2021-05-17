@@ -16,6 +16,7 @@ import {
 import { AdProperties } from './lib/AdProperties';
 import { AdTargeting } from './lib/AdTargeting';
 import { AdRequestConfig } from './lib/AdRequestConfig';
+import { Geo } from './lib/Geo';
 
 // Imports for joining interest groups.
 import { AdInterests } from './lib/AdInterests';
@@ -36,6 +37,11 @@ declare global {
   var AdTargeting: {
     prototype: AdTargeting;
     new(other?: AdTargeting): AdTargeting;
+  };
+
+  var Geo: {
+    prototype: Geo;
+    new(other?: Geo): Geo;
   };
 
   var AdRequestConfig: {
@@ -64,6 +70,10 @@ if (!globalThis.AdProperties) {
 
 if (!globalThis.AdTargeting) {
   globalThis.AdTargeting = AdTargeting;
+}
+
+if (!globalThis.Geo) {
+  globalThis.Geo = Geo;
 }
 
 if (!globalThis.AdRequestConfig) {
