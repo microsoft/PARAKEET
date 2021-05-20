@@ -92,14 +92,47 @@ export function GetInterestGroups() {
     throw new TypeError("Error retrieving stored interests. Clear localStorage.");
   }
 
+  // We want to generate a format for PARAKEET to be able to process per-reader.
+  // e.g.
+  // reader1: {
+  //   interests: {
+  //     origin1: [interest1, interest2, ...],
+  //     origin2: [interest1, interestA, ...],
+  //   }
+  // },
+  // reader2: {
+  // ...
+
+  let joinedInterests: { [x: string]: { [x: string]: { [x: string]: string[]; }; }; } = {};
   const currentTimeInSeconds = (new Date().getTime() / 1000);
   Object.keys(storedInterests).forEach(function (namespacedInterestGroup) {
     Object.keys(storedInterests[namespacedInterestGroup]["interests"]).forEach(function (interest: string) {
-      if (storedInterests[namespacedInterestGroup]["interests"][interest].expiration <= currentTimeInSeconds) {
-        storedInterests[namespacedInterestGroup]["interests"][interest] = {};
+      // If this specific interest is not yet expired we can add it to our list.
+      if (storedInterests[namespacedInterestGroup]["interests"][interest].expiration > currentTimeInSeconds) {
+        // Make sure to add this for each reader specified.
+        Object.keys(storedInterests[namespacedInterestGroup]["interests"][interest].readers).forEach(function (reader) {
+          const readerName = storedInterests[namespacedInterestGroup]["interests"][interest].readers[reader];
+          // Ensure our root reader node exists.
+          if (!joinedInterests[readerName]) {
+            joinedInterests[readerName] = {};
+          }
+
+          // Ensure we have an 'interests' index to look/add to.
+          if (!joinedInterests[readerName]["interests"]) {
+            joinedInterests[readerName]["interests"] = {};
+          }
+
+          // This may be the first time we're seeing this specific origin, so ensure it is available.
+          if (!joinedInterests[readerName]["interests"][namespacedInterestGroup]) {
+            joinedInterests[readerName]["interests"][namespacedInterestGroup] = [];
+          }
+
+          // Now add this interest within the origin (namespace) for the given reader.
+          joinedInterests[readerName]["interests"][namespacedInterestGroup].push(interest);
+        });
       }
     });
   });
 
-  return storedInterests;
+  return joinedInterests;
 }

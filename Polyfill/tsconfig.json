@@ -21,6 +21,7 @@
     "lib/AdRequestConfig.ts",
     "lib/AdTargeting.ts",
     "lib/AnonymizedSignals.ts",
+    "lib/Geo.ts",
     "lib/InterestGroups.ts",
     "lib/ParakeetHelpers.ts"
   ]

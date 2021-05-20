@@ -54,6 +54,7 @@ flow:
         - [AdRequestConfig](#adrequestconfig)
         - [AdTargeting](#adtargeting)
         - [AnonymizedSignals](#anonymizedsignals)
+        - [Geo](#geo)
       - [Methods](#methods)
         - [Navigator.createAdRequest](#navigatorcreateadrequest)
         - [Navigator.joinParakeetInterestGroup](#navigatorjoinparakeetinterestgroup)
@@ -184,7 +185,20 @@ export class AdTargeting {
   // contextual signals made available at the time of the request.
   interests?: string[];
   // Geolocation information the requesting site may be aware of.
-  geolocation?: number[];
+  geolocation?: Geo;
+}
+```
+
+###### Geo
+Intended to represent the geolocation data for the desired ad. This is built to
+follow the [OpenRTB](https://developers.google.com/authorized-buyers/rtb/openrtb-guide#geo)
+Geo data format.
+```typescript
+export class Geo {
+  // Latitude from -90.0 to +90.0, where negative is south.
+  lat?: number;
+  // Longitude from -180.0 to +180.0, where negative is west.
+  lon?: number;
 }
 ```
 
@@ -376,10 +390,10 @@ navigator.createAdRequest({
          "Lawn Mowers",
          "Shoes"
       ],
-      "geolocation": [
-         47.6397316,
-         -122.1419026
-      ]
+      "geolocation": {
+        "lat": 47.6397316,
+        "lon": -122.1419026
+      }
    },
    "anonymizedProxiedSignals": [
       "coarse-geolocation",

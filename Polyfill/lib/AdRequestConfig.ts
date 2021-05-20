@@ -68,16 +68,9 @@ export class AdRequestConfig {
   }
 
   toRequestBody(): string {
-    let json = JSON.stringify(this);
-    // Modify our properties to match the service expectations.
-    json = json.replace('proxiedAnonymizingOrigin', 'proxied-anonymizing-origin');
-    json = json.replace('adProperties', 'ad-properties');
-    json = json.replace('publisherCode', 'publisher-code');
-    json = json.replace('publisherAdUnit', 'publisher-ad-unit');
-    json = json.replace('anonymizedProxiedSignals', 'anonymized-proxied-signals');
-    json = json.replace('fallbackSource', 'fallback-source');
-
-    return json;
+    // Currently no special processing is required so we can simply stringify
+    // this object and return as-is.
+    return JSON.stringify(this);
   }
 
   // Stores any joined AdInterests, not setable by callers and will be

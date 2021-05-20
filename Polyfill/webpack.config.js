@@ -23,14 +23,11 @@
     },
     resolve: {
       extensions: [".tsx", ".d.ts", ".ts", ".js"]
-    },
-    // Include the generation of debugging information within the output file
-    // (Required for debugging client scripts)
-    devtool: "inline-source-map"
+    }
   };
 
-  let minConfig = Object.assign({}, config, {
-    name: "MinifiedConfig",
+  let debugConfig = Object.assign({}, config, {
+    name: "DebugConfig",
     mode: "production",
     output: {
       filename: 'parakeet.js',
@@ -41,11 +38,14 @@
     ],
     optimization: {
       minimize: false
-    }
+    },
+    // Include the generation of debugging information within the output file
+    // (Required for debugging client scripts)
+    devtool: "inline-source-map"
   });
 
-  let debugConfig = Object.assign({}, config, {
-    name: "DebugConfig",
+  let minConfig = Object.assign({}, config, {
+    name: "MinifiedConfig",
     mode: "development",
     output: {
       filename: 'parakeet.min.js',

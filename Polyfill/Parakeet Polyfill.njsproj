@@ -31,6 +31,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="lib\Geo.ts" />
     <TypeScriptCompile Include="lib\InterestGroups.ts" />
     <TypeScriptCompile Include="lib\AdInterests.ts" />
     <TypeScriptCompile Include="lib\AdProperties.ts" />
