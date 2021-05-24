@@ -75,21 +75,41 @@ TypeScript project. We also plan to release both minified and non-minified vanil
 JavaScript bundles that can be directly included as part of other stacks. If
 another format would be useful, let us know by opening an issue, and we'll see what we can do!
 
-###### Include directly on a webpage
+###### Include directly on a webpage (Publisher page action)
 ```html
 <script src='https://somecontentsite.example/libs/parakeet.min.js' type='text/script'/>
 <script>Parakeet.SetStorageOrigin(new URL("https://edge.microsoft.com/parakeet/frame.html"));</script>
 <!-- You're now ready to use PARAKEET! -->
 ````
+1.
+2.
+3.
 
-###### Inject from other script/ad tech
+###### Inject from other script/ad tech (Advertiser page action)
 ```javascript
 let scriptTag = document.createElement('script');
 scriptTag.src = 'https://somecontentsite.example/libs/parakeet.min.js';
 document.body.appendChild(scriptTag);
 // You're now ready to use Parakeet!
 ```
+
+DSP code on advertiser site will do the following
+1.
+2.
+3
+
+Sample code here
+
+###### What else needs to be implemented to respond to ad request (DSP side action)
+To complete the demo test framework, you will need to :
+1. Publish your public keys at well known PARAKEET location
+2. Decrypt the interest group that are encrypted with your public key
+3. Respond with the best ad for context c and s
+
+
+
 <br/>
+
 
 #### Current API set
 The current version of the Parakeet Polyfill defines the following methods and
