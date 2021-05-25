@@ -103,6 +103,8 @@ For advertisers to use PARAKEET or to transition advertising activities:
    1. Set `readers` to list DSP and SSP partners you want to be able to read your interest groups.
    2. Set a `duration` that is appropriate. Interests will automatically expire and be excluded after this.
 
+As an alternative, DSP can enable PARAKEET polyfill and ad interest flow on behalf of the advertiser. DSP(s) needs to work with the advertiser to setup correct `readers`.
+
 <br/>
 
 ##### **Publisher Page Changes**
