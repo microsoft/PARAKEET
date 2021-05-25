@@ -62,6 +62,9 @@ flow:
         - [Parakeet.SetServeAds](#parakeet.setserveads)
         - [Parakeet.SetStorageOrigin](#parakeet.setstorageorigin)
         - [Parakeet.ListenAsRemoteStorage](#parakeet.listenasremotestorage)
+    - [.well-known URLs](#well-known-urls)
+        - [.well-known/ad-bundles](#well-knownad-bundles)
+        - [.well-known/parakeet.jwk](#well-knownparakeet.jwk)
     - [Examples](#examples)
       - [Host a PARAKEET storage 'silo'](#host-a-parakeet-storage-silo)
       - [Join an interest group or two](#join-an-interest-group-or-two)
@@ -75,17 +78,14 @@ TypeScript project. We also plan to release both minified and non-minified vanil
 JavaScript bundles that can be directly included as part of other stacks. If
 another format would be useful, let us know by opening an issue, and we'll see what we can do!
 
-###### Include directly on a webpage (Publisher page action)
+###### Include directly on a webpage
 ```html
 <script src='https://somecontentsite.example/libs/parakeet.min.js' type='text/script'/>
 <script>Parakeet.SetStorageOrigin(new URL("https://edge.microsoft.com/parakeet/frame.html"));</script>
 <!-- You're now ready to use PARAKEET! -->
 ````
-1.
-2.
-3.
 
-###### Inject from other script/ad tech (Advertiser page action)
+###### Inject from other script/ad tech
 ```javascript
 let scriptTag = document.createElement('script');
 scriptTag.src = 'https://somecontentsite.example/libs/parakeet.min.js';
@@ -93,20 +93,35 @@ document.body.appendChild(scriptTag);
 // You're now ready to use Parakeet!
 ```
 
-DSP code on advertiser site will do the following
-1.
-2.
-3
+<br/>
 
-Sample code here
+##### Advertiser Page Action
+For advertisers to use PARAKEET or to transition advertising activities:
+1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech.
+2. Use existing 1st party knowledge to select relevant interest groups.
+3. Execute new Javascript to join the relevant interest groups with an appropriate duration. See: [Join an interest group or two](#join-an-interest-group-or-two)
+   1. Set `readers` to all DSP and SSP partners you want to be able to read your interest groups.
+   2. Set a `duration` that is appropriate. Interests will automatically expire and be excluded after this.
 
-###### What else needs to be implemented to respond to ad request (DSP side action)
-To complete the demo test framework, you will need to :
-1. Publish your public keys at well known PARAKEET location
-2. Decrypt the interest group that are encrypted with your public key
-3. Respond with the best ad for context c and s
+<br/>
 
+##### Publisher Page Action
+For advertisers to use PARAKEET or to transition advertising activities:
+1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech.
+2. Execute new Javascript to request an ad with any contextual information or interests available. See: [Create an AdRequest and serve an ad](#create-an-adrequest-and-serve-an-ad)
+   1. On success, create an iFrame, set the `src` to the provided URL and insert into the Document to display the ad.
+   2. On failure, be sure to use **[sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)** or other mechanisms to log and track failures.
 
+<br/>
+
+##### What else needs to be implemented to respond to ad request (DSP server-side action)
+To complete the demo test framework, you will need to:
+1. Respond with the best ad for context c and s.
+
+Coming Soon:
+
+2. Publish your public keys at well known PARAKEET location. See [.well-known/parakeet.jwk](#well-knownparakeet.jwk)
+3. Decrypt the interest groups that are encrypted with your public key.
 
 <br/>
 
@@ -327,6 +342,40 @@ navigator.joinParakeetInterestGroup is called from.**
 Helper to setup a frame to act as a remote storage silo. This should be called
 in the common frame referenced by client calls to
 [Parakeet.SetStorageOrigin](#parakeet.setstorageorigin).
+
+<br/>
+
+#### .well-known URLS
+Current .well-known URLs used by PARAKEET.
+
+##### .well-known/ad-bundles
+Endpointed hosted by the `proxiedAnonymizingOrigin` in the provided
+[AdRequestConfig](#adrequestconfig). This endpoint should respond with an
+apropriate ad to display. Currently this should be a complete HTML document. See
+also [Parakeet#ad-request-with-anonymization](https://github.com/WICG/privacy-preserving-ads/blob/main/Parakeet.md#ad-request-with-anonymization)
+
+
+##### .well-known/parakeet.jwk
+Coming soon the PARAKEET service will **encrypt all interest groups** before
+distributing them. To ensure only allowed endpoints can consume the interest
+groups please ensure any specified `readers` used when joining interest groups
+publish a public key at a .well-known/parakeet.jwk URL. This key will be used
+to ensure only the specified readers can view the joined groups during any
+multi-party auctions.
+
+The format of the published key should use the JSON Web Key (JWK) format
+described in [RFC 7517](https://datatracker.ietf.org/doc/html/rfc7517).
+```json
+{
+  "n": "7ec6QPY1XKA8...", // modulus
+  "e": "AQAB",            // exponent
+  "kid": "PUBLIC_KEY_ID", // key identifier
+  "kty": "RSA",           // key type
+  "use": "enc"            // usage
+}
+```
+
+**Note: This is not currently required. Please publish keys to prepare for this functionality.**
 
 <br/>
 
