@@ -95,34 +95,34 @@ document.body.appendChild(scriptTag);
 
 <br/>
 
-##### Advertiser Page Action
+##### **Advertiser Page Changes**
 For advertisers to use PARAKEET or to transition advertising activities:
-1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech.
-2. Use existing 1st party knowledge to select relevant interest groups.
-3. Execute new Javascript to join the relevant interest groups with an appropriate duration. See: [Join an interest group or two](#join-an-interest-group-or-two)
-   1. Set `readers` to all DSP and SSP partners you want to be able to read your interest groups.
+1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech (DSP)
+2. Use existing 1st party knowledge to select relevant interest groups or identify user features.
+3. Execute new Javascript APIs to join the relevant interest groups with an appropriate duration. See: [Join an interest group or two](#join-an-interest-group-or-two)
+   1. Set `readers` to list DSP and SSP partners you want to be able to read your interest groups.
    2. Set a `duration` that is appropriate. Interests will automatically expire and be excluded after this.
 
 <br/>
 
-##### Publisher Page Action
-For advertisers to use PARAKEET or to transition advertising activities:
-1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech.
-2. Execute new Javascript to request an ad with any contextual information or interests available. See: [Create an AdRequest and serve an ad](#create-an-adrequest-and-serve-an-ad)
+##### **Publisher Page Changes**
+For Publisher to enable ad based on user features in local storage and request through service:
+1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech (SSP)
+2. Execute new Javascript API to request an ad with any contextual information or interests available. See: [Create an AdRequest and serve an ad](#create-an-adrequest-and-serve-an-ad)
    1. On success, create an iFrame, set the `src` to the provided URL and insert into the Document to display the ad.
    2. On failure, be sure to use **[sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)** or other mechanisms to log and track failures.
 
+As an alternative, programmatic SSP can enable PARAKEET ad request on behalf of publisher. SSP needs to create and support service at endpoint specified in `proxiedAnonymizingOrigin`
+
 <br/>
 
-##### What else needs to be implemented to respond to ad request (DSP server-side action)
-To complete the demo test framework, you will need to:
-1. Respond with the best ad for context c and s.
-
-Coming Soon:
-
-2. Publish your public keys at well known PARAKEET location. See [.well-known/parakeet.jwk](#well-knownparakeet.jwk)
-3. Decrypt the interest groups that are encrypted with your public key.
-
+##### **DSP Server-side Changes (What else needs to be implemented to respond to ad request)**
+To complete the test framework, you will need to:
+1. Read user interest groups `s` (based on namespace) and publisher context `c`.
+2. Retrive the best ad for context `c` and `s`.
+3. Respond with optimal bid and creative to SSP/programmatic exchange.
+4. To support encryption for `s`: Publish your public keys at well known PARAKEET location. See [.well-known/parakeet.jwk](#well-knownparakeet.jwk)
+5. COMING SOON: Decrypt the interest groups that are encrypted with your public key for step 1-3.
 <br/>
 
 
