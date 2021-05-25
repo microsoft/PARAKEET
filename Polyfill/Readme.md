@@ -114,17 +114,17 @@ For Publisher to enable ad based on user features in local storage and request t
    1. On success, create an iFrame, set the `src` to the provided URL and insert into the Document to display the ad.
    2. On failure, be sure to use **[sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)** or other mechanisms to log and track failures.
 
-As an alternative, programmatic SSP can enable PARAKEET ad request on behalf of publisher. SSP needs to create and support service at endpoint specified in `proxiedAnonymizingOrigin`
+As an alternative, programmatic SSP can enable PARAKEET ad requests on behalf of publisher. SSP needs to create and support service at endpoint specified in `proxiedAnonymizingOrigin`
 
 <br/>
 
 ##### **DSP Server-side Changes (What else needs to be implemented to respond to ad request)**
 To complete the test framework, you will need to:
 1. Read user interest groups `s` (based on namespace) and publisher context `c`.
-2. Retrive the best ad for context `c` and `s`.
+2. Retrieve the best ad for context `c` and `s`.
 3. Respond with optimal bid and creative to SSP/programmatic exchange.
 4. To support encryption for `s`: Publish your public keys at well known PARAKEET location. See [.well-known/parakeet.jwk](#well-knownparakeet.jwk)
-5. COMING SOON: Decrypt the interest groups that are encrypted with your public key for step 1-3.
+5. COMING SOON: Decrypt the interest groups that are encrypted with your public key for steps 1-3.
 <br/>
 
 
