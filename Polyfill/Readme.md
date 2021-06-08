@@ -96,6 +96,8 @@ document.body.appendChild(scriptTag);
 <br/>
 
 ##### **Advertiser Page Changes**
+[**Demo/Example**](https://codepen.io/MSEdgeDev/live/wvJdXZb)
+
 For advertisers to use PARAKEET or to transition advertising activities:
 1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech (DSP)
 2. Use existing 1st party knowledge to select relevant interest groups or identify user features.
@@ -103,11 +105,13 @@ For advertisers to use PARAKEET or to transition advertising activities:
    1. Set `readers` to list DSP and SSP partners you want to be able to read your interest groups.
    2. Set a `duration` that is appropriate. Interests will automatically expire and be excluded after this.
 
-As an alternative, DSP can enable PARAKEET polyfill and ad interest flow on behalf of the advertiser. DSP(s) needs to work with the advertiser to setup correct `readers`.
+As an alternative, DSP(s) can enable PARAKEET polyfill and ad interest flow on behalf of the advertiser. DSP(s) needs to work with the advertiser to setup correct `readers`.
 
 <br/>
 
 ##### **Publisher Page Changes**
+[**Demo/Example**](https://codepen.io/MSEdgeDev/live/GRWrQye)
+
 For Publisher to enable ad based on user features in local storage and request through service:
 1. Include the PARAKEET polyfill either directly on a page or with other scripts/ad-tech (SSP)
 2. Execute new Javascript API to request an ad with any contextual information or interests available. See: [Create an AdRequest and serve an ad](#create-an-adrequest-and-serve-an-ad)
