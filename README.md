@@ -9,7 +9,10 @@ We're pleased to further this discussion among the web community with the contri
 
 * [PARAKEET](https://github.com/WICG/privacy-preserving-ads/blob/main/Parakeet.md)
   * [PARAKEET polyfill](/Polyfill)
+* [PARAKEET with Noisy Ranking](https://github.com/WICG/privacy-preserving-ads/blob/main/NoisyRanking.md)
 * [MaCAW](https://github.com/WICG/privacy-preserving-ads/blob/main/MACAW.md)
+* [Masked LARK: Masked Learning, Aggregation and Reporting worKflow](https://github.com/WICG/privacy-preserving-ads/blob/main/MaskedLARK.md)
+
 
 
 ## Contributing
